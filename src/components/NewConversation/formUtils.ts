@@ -22,7 +22,7 @@ export function verifyJobParams(jobParams: VerifyJobParamsProps) {
         return {
             verified: false,
             message:
-                'Job name must be between 1-200 characters. Valid characters are a-z, A-Z, 0-9, . (period), _ (underscore), and – (hyphen).',
+                'Patient name must be between 1-200 characters. Valid characters are a-z, A-Z, 0-9, . (period), _ (underscore), and – (hyphen).',
         };
     }
 
