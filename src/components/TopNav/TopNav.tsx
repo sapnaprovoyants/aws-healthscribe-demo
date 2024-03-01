@@ -140,7 +140,7 @@ export default function TopNav() {
             <TopNavigation
                 identity={{
                     href: '/',
-                    title: 'Amazon Web Services',
+                    title: 'Simplifying Patient Record Documentation',
                 }}
                 utilities={navUtils}
             />
