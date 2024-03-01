@@ -132,7 +132,7 @@ export default function TopNav() {
                   onClick: () => setAuthVisible(true),
               };
 
-    const navUtils = [utilVisual, utilUser];
+    const navUtils = [utilUser];
 
     return (
         <>
