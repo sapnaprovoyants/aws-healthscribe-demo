@@ -189,12 +189,12 @@ function TableHeader({ selectedHealthScribeJob, headerCounterText, listHealthScr
                     />
                 }
             >
-                Conversations
+                History
             </Header>
             <Form>
                 <Grid gridDefinition={[{ colspan: 5 }, { colspan: 3 }]}>
                     <Input
-                        placeholder="HealthScribe Job Name"
+                        placeholder=""
                         value={searchParams?.JobNameContains || ''}
                         onChange={({ detail }) => handleInputChange('JobNameContains', detail.value)}
                     />

@@ -217,24 +217,8 @@ export default function NewConversation() {
     }, [recordedAudio]);
 
     return (
-        <ContentLayout
-            header={
-                <Header
-                    description="Upload your audio file to be processed by AWS HealthScribe"
-                    variant="awsui-h1-sticky"
-                >
-                    New Conversation
-                </Header>
-            }
-        >
-            <Container
-                header={
-                    <Header
-                        variant="h3"
-                        description="Note: AWS HealthScribe offers additional features not built into this demo, such as Custom Vocabulary, Content Removal, and more. This is available via the AWS console, API, or SDK."
-                    />
-                }
-            >
+        <ContentLayout>
+            <Container>
                 <form onSubmit={(e) => submitJob(e)}>
                     <Form
                         errorText={formError}

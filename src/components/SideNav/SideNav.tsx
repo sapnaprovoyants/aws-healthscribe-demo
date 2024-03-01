@@ -17,12 +17,12 @@ export default function SideNav({ activeHref }: SideNavProps) {
     const sideNavItems: SideNavigationProps.Item[] = [
         {
             type: 'link',
-            text: 'Conversations',
+            text: 'History',
             href: '/conversations',
         },
         {
             type: 'link',
-            text: 'New Conversation',
+            text: 'New Patient',
             href: '/new',
         },
     ];

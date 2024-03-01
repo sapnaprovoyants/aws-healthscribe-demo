@@ -140,7 +140,7 @@ export default function TopNav() {
             <TopNavigation
                 identity={{
                     href: '/',
-                    title: 'Simplifying Patient Record Documentation',
+                    title: 'Patient Record Documentation',
                 }}
                 utilities={navUtils}
             />
