@@ -25,18 +25,6 @@ export default function SideNav({ activeHref }: SideNavProps) {
             text: 'New Conversation',
             href: '/new',
         },
-        { type: 'divider' },
-        {
-            type: 'link',
-            text: 'Generate Audio',
-            href: '/generate',
-        },
-        { type: 'divider' },
-        {
-            type: 'link',
-            text: 'Settings',
-            href: '/settings',
-        },
     ];
 
     return (
