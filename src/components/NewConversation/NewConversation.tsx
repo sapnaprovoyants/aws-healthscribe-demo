@@ -182,9 +182,9 @@ export default function NewConversation() {
                     type: 'success',
                     value: 100,
                     description: 'Patient Record submitted',
-                    additionalInfo: `Audio file successfully uploaded to S3 and submitted to HealthScribe at ${dayjs
+                    additionalInfo: `Patient record submitted at ${dayjs
                         .unix(startJob.data.MedicalScribeJob.StartTime)
-                        .format('MM/DD/YYYY hh:mm A')}. Redirecting to conversation list in 5 seconds.`,
+                        .format('MM/DD/YYYY hh:mm A')}.`,
                 });
                 await sleep(5000);
                 navigate('/conversations');
