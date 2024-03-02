@@ -53,5 +53,5 @@ export const DEFAULT_PREFERENCES: TablePreferencesDef = {
     pageSize: 20,
     wrapLines: false,
     stripedRows: true,
-    visibleContent: ['MedicalScribeJobName', 'MedicalScribeJobStatus', 'CreationTime', 'ExpiresIn'],
+    visibleContent: ['MedicalScribeJobName', 'MedicalScribeJobStatus', 'CreationTime'],
 };
