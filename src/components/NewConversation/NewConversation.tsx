@@ -90,7 +90,7 @@ export default function NewConversation() {
     }
 
     /**
-     * @description Submit the form to create a New Patient Record
+     * @description Submit the form to create a new HealthScribe job
      */
     async function submitJob(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
@@ -167,7 +167,7 @@ export default function NewConversation() {
                 id: `New Patient Record: ${jobName}`,
                 type: 'error',
                 value: 0,
-                description: 'Uploading files to S3 failed',
+                description: 'Uploading files to failed',
                 additionalInfo: `Error uploading ${filePath!.name}: ${(e as Error).message}`,
             });
             setIsSubmitting(false);
@@ -181,7 +181,8 @@ export default function NewConversation() {
                     id: `New Patient Record: ${jobName}`,
                     type: 'success',
                     value: 100,
-                    additionalInfo: `Patient record submitted at ${dayjs
+                    description: 'Processing',
+                    additionalInfo: `Audio file successfully uploaded at ${dayjs
                         .unix(startJob.data.MedicalScribeJob.StartTime)
                         .format('MM/DD/YYYY hh:mm A')}.`,
                 });
@@ -189,20 +190,20 @@ export default function NewConversation() {
                 navigate('/conversations');
             } else {
                 updateProgressBar({
-                    id: `New Patient Record: ${jobName}`,
+                    id: `New Job: ${jobName}`,
                     type: 'info',
                     value: 100,
-                    description: 'Unable to confirm Patient Record submission',
-                    additionalInfo: `Response: ${JSON.stringify(startJob?.data)}`,
+                    description: 'Unable to confirm job submission',
+                    additionalInfo: `Response from : ${JSON.stringify(startJob?.data)}`,
                 });
             }
         } catch (e) {
             updateProgressBar({
-                id: `New Patient Record: ${jobName}`,
+                id: `New Job: ${jobName}`,
                 type: 'error',
                 value: 0,
-                description: 'Submitting history failed',
-                additionalInfo: `For demo application ${jobName} must be unique`,
+                description: 'Submitting job to failed',
+                additionalInfo: `Error submitting job to: ${(e as Error).message}`,
             });
             setIsSubmitting(false);
             throw e;
@@ -258,7 +259,7 @@ export default function NewConversation() {
                                         >
                                             <Popover
                                                 header="Live Recording"
-                                                content="The audio file will be submitted to AWS HealthScribe after the recording is complete. Please position your device or microphone so it can capture all conversation participants."
+                                                content="The audio file will be submitted, after the recording is complete. Please position your device or microphone so it can capture all conversation participants."
                                             >
                                                 <StatusIndicator type="info">New</StatusIndicator>
                                             </Popover>
