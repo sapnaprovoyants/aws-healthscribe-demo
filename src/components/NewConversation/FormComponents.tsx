@@ -33,8 +33,11 @@ type AudioIdentificationTypeProps = {
 };
 export function AudioIdentificationType({ audioSelection, setAudioSelection }: AudioIdentificationTypeProps) {
     return (
-        <FormField>
-            <div style="display:none">
+        <FormField
+            label="Audio identification type"
+            description="Choose to split multi-channel audio into separate channels for transcription, or partition speakers in the input audio."
+        >
+            <div>
                 <RadioGroup
                     onChange={({ detail }) => setAudioSelection(detail.value)}
                     value={audioSelection}
