@@ -24,7 +24,8 @@ function Welcome() {
                 <TextContent>
                   <p>Thank you for taking the time to explore our demo application.</p>
                   <p> Your feedback is invaluable to us as we strive to create a solution that reduces documentation burden for clinicians.</p>
-                  <p>To use this application, please log in using the credentials provided to you by our team. For this demo, navigate to the new patient screen and provide a patient name. Click on live recording.</p>
+                  <p>To use this application, please log in using the credentials provided to you by our team.</p> 
+                  <p>For this demo, navigate to the new patient screen and provide a patient name, click on live recording.</p>
                   <p>We look forward to hearing your thoughts and insights.</p>
                 </TextContent>
             );
