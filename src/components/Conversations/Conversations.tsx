@@ -33,16 +33,16 @@ type MoreHealthScribeJobs = {
 
 export default function Conversations() {
     const { addFlashMessage } = useNotificationsContext();
-    const [healthScribeJobs, setHealthScribeJobs] = useState<HealthScribeJob[]>([]); // HealthScribe jobs from API
-    const [moreHealthScribeJobs, setMoreHealthScribeJobs] = useState<MoreHealthScribeJobs>({}); // More HealthScribe jobs from API (NextToken returned)
-    const [selectedHealthScribeJob, setSelectedHealthScribeJob] = useState<HealthScribeJob[] | []>([]); // Selected HealthScribe job
+    const [healthScribeJobs, setHealthScribeJobs] = useState<HealthScribeJob[]>([]); // Patient Records from API
+    const [moreHealthScribeJobs, setMoreHealthScribeJobs] = useState<MoreHealthScribeJobs>({}); // More Patient Records from API (NextToken returned)
+    const [selectedHealthScribeJob, setSelectedHealthScribeJob] = useState<HealthScribeJob[] | []>([]); // Selected Patient Record
     const [tableLoading, setTableLoading] = useState(false); // Loading state for table
     const [preferences, setPreferences] = useLocalStorage<TablePreferencesDef>(
         'Conversation-Table-Preferences',
         DEFAULT_PREFERENCES
     ); // Conversation table preferences
 
-    // Header counter for the number of HealthScribe jobs
+    // Header counter for the number of Patient Records
     const headerCounterText = `(${healthScribeJobs.length}${Object.keys(moreHealthScribeJobs).length > 0 ? '+' : ''})`;
 
     // Call Transcribe API to list HealthScribe jobs - optional search filter
@@ -105,7 +105,7 @@ export default function Conversations() {
     // Table collection
     const { items, actions, collectionProps, paginationProps } = useCollection(healthScribeJobs, {
         filtering: {
-            empty: <TableEmptyState title="No HealthScribe jobs" subtitle="Try clearing the search filter." />,
+            empty: <TableEmptyState title="No Patient Records" subtitle="Try clearing the search filter." />,
             noMatch: (
                 <TableEmptyState
                     title="No matches"
@@ -132,7 +132,7 @@ export default function Conversations() {
             }
             items={items}
             loading={tableLoading}
-            loadingText="Loading HealthScribe jobs"
+            loadingText="Loading Patient Records"
             onSelectionChange={({ detail }) => setSelectedHealthScribeJob(detail.selectedItems)}
             pagination={
                 <Pagination

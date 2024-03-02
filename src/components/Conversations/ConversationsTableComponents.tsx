@@ -45,9 +45,9 @@ function DeleteModal({
             refreshTable();
         } catch (err) {
             addFlashMessage({
-                id: err?.toString() || 'Error deleting HealthScribe job',
-                header: 'Error deleting HealthScribe job',
-                content: err?.toString() || 'Error deleting HealthScribe job',
+                id: err?.toString() || 'Error deleting Patient Record',
+                header: 'Error deleting Patient Record',
+                content: err?.toString() || 'Error deleting Patient Record',
                 type: 'error',
             });
         }
@@ -144,7 +144,7 @@ function TableHeader({ selectedHealthScribeJob, headerCounterText, listHealthScr
     const [searchParams, setSearchParams] = useState<ListHealthScribeJobsProps>({});
     const [debouncedSearchParams] = useDebounce(searchParams, 500);
 
-    // List HealthScribe jobs on initial load
+    // List Patient Records on initial load
     useEffect(() => {
         listHealthScribeJobs({}).catch(console.error);
     }, []);

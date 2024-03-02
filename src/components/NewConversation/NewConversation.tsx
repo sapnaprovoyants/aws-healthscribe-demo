@@ -83,14 +83,14 @@ export default function NewConversation() {
         const loadedMb = Math.round((loaded || 1) / 1024 / 1024);
         const totalMb = Math.round((total || 1) / 1024 / 1024);
         updateProgressBar({
-            id: `New HealthScribe Job: ${jobName}`,
+            id: `New Patient Record: ${jobName}`,
             value: value,
             description: `Uploaded part ${part}, ${loadedMb}MB / ${totalMb}MB`,
         });
     }
 
     /**
-     * @description Submit the form to create a new HealthScribe job
+     * @description Submit the form to create a New Patient Record
      */
     async function submitJob(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
@@ -151,7 +151,7 @@ export default function NewConversation() {
 
         // Add initial progress flash message
         updateProgressBar({
-            id: `New HealthScribe Job: ${jobName}`,
+            id: `New Patient Record: ${jobName}`,
             value: 0,
             description: 'Upload to S3 in progress...',
         });
@@ -164,7 +164,7 @@ export default function NewConversation() {
             });
         } catch (e) {
             updateProgressBar({
-                id: `New HealthScribe Job: ${jobName}`,
+                id: `New Patient Record: ${jobName}`,
                 type: 'error',
                 value: 0,
                 description: 'Uploading files to S3 failed',
@@ -178,10 +178,10 @@ export default function NewConversation() {
             const startJob = await startMedicalScribeJob(jobParams);
             if (startJob?.data?.MedicalScribeJob?.MedicalScribeJobStatus) {
                 updateProgressBar({
-                    id: `New HealthScribe Job: ${jobName}`,
+                    id: `New Patient Record: ${jobName}`,
                     type: 'success',
                     value: 100,
-                    description: 'HealthScribe job submitted',
+                    description: 'Patient Record submitted',
                     additionalInfo: `Audio file successfully uploaded to S3 and submitted to HealthScribe at ${dayjs
                         .unix(startJob.data.MedicalScribeJob.StartTime)
                         .format('MM/DD/YYYY hh:mm A')}. Redirecting to conversation list in 5 seconds.`,
@@ -190,16 +190,16 @@ export default function NewConversation() {
                 navigate('/conversations');
             } else {
                 updateProgressBar({
-                    id: `New HealthScribe Job: ${jobName}`,
+                    id: `New Patient Record: ${jobName}`,
                     type: 'info',
                     value: 100,
-                    description: 'Unable to confirm HealthScribe job submission',
+                    description: 'Unable to confirm Patient Record submission',
                     additionalInfo: `Response from HealthScribe: ${JSON.stringify(startJob?.data)}`,
                 });
             }
         } catch (e) {
             updateProgressBar({
-                id: `New HealthScribe Job: ${jobName}`,
+                id: `New Patient Record: ${jobName}`,
                 type: 'error',
                 value: 0,
                 description: 'Submitting job to HealthScribe failed',
