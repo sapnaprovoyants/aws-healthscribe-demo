@@ -98,28 +98,10 @@ export default function NewConversation() {
         setFormError('');
 
         // build job params with StartMedicalScribeJob request syntax
-        const audioParams =
-            audioSelection === 'speakerPartitioning'
-                ? {
+        const audioParams ={
                       Settings: {
-                          MaxSpeakerLabels: audioDetails.speakerPartitioning.maxSpeakers,
+                          MaxSpeakerLabels: 2,
                           ShowSpeakerLabels: true,
-                      },
-                  }
-                : {
-                      ChannelDefinitions: [
-                          {
-                              ChannelId: 0,
-                              ParticipantRole: audioDetails.channelIdentification.channel1,
-                          },
-                          {
-                              ChannelId: 1,
-                              ParticipantRole:
-                                  audioDetails.channelIdentification.channel1 === 'CLINICIAN' ? 'PATIENT' : 'CLINICIAN',
-                          },
-                      ],
-                      Settings: {
-                          ChannelIdentification: true,
                       },
                   };
 
@@ -238,15 +220,6 @@ export default function NewConversation() {
                     >
                         <SpaceBetween direction="vertical" size="xl">
                             <InputName jobName={jobName} setJobName={setJobName} />
-                           /** <AudioIdentificationType
-                                audioSelection={audioSelection}
-                                setAudioSelection={setAudioSelection}
-                            />
-                            <AudioDetailSettings
-                                audioSelection={audioSelection}
-                                audioDetails={audioDetails}
-                                setAudioDetails={setAudioDetails}
-                            /> */
                             <FormField
                                 label={
                                     <SpaceBetween direction="horizontal" size="xs">
