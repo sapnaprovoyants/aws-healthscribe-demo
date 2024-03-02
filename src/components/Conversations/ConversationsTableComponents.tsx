@@ -82,8 +82,7 @@ function DeleteModal({
                 cannot undo this action.
             </p>
             <Alert statusIconAriaLabel="Info">
-                Proceeding with this action will delete the conversation but not the associated data (audio file,
-                results JSON) from S3.
+                Proceeding with this action will delete history.
             </Alert>
         </Modal>
     );

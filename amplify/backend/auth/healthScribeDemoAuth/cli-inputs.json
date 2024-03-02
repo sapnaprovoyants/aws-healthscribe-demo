@@ -10,15 +10,12 @@
         "mfaTypes": ["SMS Text Message"],
         "smsAuthenticationMessage": "Your authentication code is {####}",
         "smsVerificationMessage": "Your verification code is {####}",
-        "emailVerificationSubject": "Your AWS HealthScribe Demo Verification Code",
+        "emailVerificationSubject": "Patient Documentation Verification Code",
         "emailVerificationMessage": "Your verification code is {####}",
         "defaultPasswordPolicy": false,
         "passwordPolicyMinLength": 8,
         "passwordPolicyCharacters": [
-            "Requires Lowercase",
-            "Requires Uppercase",
-            "Requires Numbers",
-            "Requires Symbols"
+            "Requires Lowercase"
         ],
         "requiredAttributes": ["email"],
         "aliasAttributes": [],

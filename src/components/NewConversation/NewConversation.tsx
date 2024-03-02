@@ -181,7 +181,6 @@ export default function NewConversation() {
                     id: `New Patient Record: ${jobName}`,
                     type: 'success',
                     value: 100,
-                    description: 'Patient Record submitted',
                     additionalInfo: `Patient record submitted at ${dayjs
                         .unix(startJob.data.MedicalScribeJob.StartTime)
                         .format('MM/DD/YYYY hh:mm A')}.`,
@@ -194,7 +193,7 @@ export default function NewConversation() {
                     type: 'info',
                     value: 100,
                     description: 'Unable to confirm Patient Record submission',
-                    additionalInfo: `Response from HealthScribe: ${JSON.stringify(startJob?.data)}`,
+                    additionalInfo: `Response: ${JSON.stringify(startJob?.data)}`,
                 });
             }
         } catch (e) {
@@ -202,8 +201,8 @@ export default function NewConversation() {
                 id: `New Patient Record: ${jobName}`,
                 type: 'error',
                 value: 0,
-                description: 'Submitting job to HealthScribe failed',
-                additionalInfo: `Error submitting job to HealthScribe: ${(e as Error).message}`,
+                description: 'Submitting history failed',
+                additionalInfo: `For demo application ${jobName} must be unique`,
             });
             setIsSubmitting(false);
             throw e;
