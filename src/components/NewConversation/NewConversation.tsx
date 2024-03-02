@@ -230,12 +230,6 @@ export default function NewConversation() {
                                             fontSize="body-s"
                                             fontWeight="bold"
                                         >
-                                            <Popover
-                                                header="Live Recording"
-                                                content="The audio file will be submitted, after the recording is complete. Please position your device or microphone so it can capture all conversation participants."
-                                            >
-                                                <StatusIndicator type="info">New</StatusIndicator>
-                                            </Popover>
                                         </Box>
                                     </SpaceBetween>
                                 }
